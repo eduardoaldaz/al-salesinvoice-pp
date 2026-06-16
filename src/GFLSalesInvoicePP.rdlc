@@ -4594,7 +4594,7 @@ Cstr(Fields!OrderNo.Value)+ Chr(177)
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!LegalLbl2.Value</Value>
+                                                    <Value>=IIF(Fields!LegalLbl2.Value = "", " ", Fields!LegalLbl2.Value)</Value>
                                                     <Style>
                                                       <FontFamily>segoe ui</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -4815,7 +4815,9 @@ Cstr(Fields!OrderNo.Value)+ Chr(177)
                       <Height>12.80052mm</Height>
                       <Width>23.1158mm</Width>
                       <ZIndex>2</ZIndex>
-                      <Visibility><Hidden>true</Hidden></Visibility>
+                      <Visibility>
+                        <Hidden>true</Hidden>
+                      </Visibility>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -4832,7 +4834,9 @@ Cstr(Fields!OrderNo.Value)+ Chr(177)
                       <Height>12.80049mm</Height>
                       <Width>22.3792mm</Width>
                       <ZIndex>3</ZIndex>
-                      <Visibility><Hidden>true</Hidden></Visibility>
+                      <Visibility>
+                        <Hidden>true</Hidden>
+                      </Visibility>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -4842,7 +4846,9 @@ Cstr(Fields!OrderNo.Value)+ Chr(177)
                     <Textbox Name="Textbox10">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
-                      <Visibility><Hidden>true</Hidden></Visibility>
+                      <Visibility>
+                        <Hidden>true</Hidden>
+                      </Visibility>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
@@ -4879,7 +4885,9 @@ Cstr(Fields!OrderNo.Value)+ Chr(177)
                       <Height>12.80049mm</Height>
                       <Width>26.1224mm</Width>
                       <ZIndex>5</ZIndex>
-                      <Visibility><Hidden>true</Hidden></Visibility>
+                      <Visibility>
+                        <Hidden>true</Hidden>
+                      </Visibility>
                       <Style>
                         <Border>
                           <Style>None</Style>

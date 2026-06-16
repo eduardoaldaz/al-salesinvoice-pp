@@ -748,21 +748,23 @@ report 50400 "GFL Sales Invoice PP"
                         TotalVATAmt += SalesInvLine."Amount Including VAT" - SalesInvLine.Amount;
                         TotalVATBaseAmt += SalesInvLine.Amount;
 
-                        TmpVATAmtLine.Init();
-                        TmpVATAmtLine."VAT Identifier" := SalesInvLine."VAT Identifier";
-                        TmpVATAmtLine."VAT %" := SalesInvLine."VAT %";
-                        if TmpVATAmtLine.Find() then begin
-                            TmpVATAmtLine."VAT Base" += SalesInvLine.Amount;
-                            TmpVATAmtLine."VAT Amount" += SalesInvLine."Amount Including VAT" - SalesInvLine.Amount;
-                            TmpVATAmtLine."Line Amount" += SalesInvLine."Line Amount";
-                            TmpVATAmtLine."Invoice Discount Amount" += SalesInvLine."Inv. Discount Amount";
-                            TmpVATAmtLine.Modify();
-                        end else begin
-                            TmpVATAmtLine."VAT Base" := SalesInvLine.Amount;
-                            TmpVATAmtLine."VAT Amount" := SalesInvLine."Amount Including VAT" - SalesInvLine.Amount;
-                            TmpVATAmtLine."Line Amount" := SalesInvLine."Line Amount";
-                            TmpVATAmtLine."Invoice Discount Amount" := SalesInvLine."Inv. Discount Amount";
-                            TmpVATAmtLine.Insert();
+                        if SalesInvLine."VAT Identifier" <> '' then begin
+                            TmpVATAmtLine.Init();
+                            TmpVATAmtLine."VAT Identifier" := SalesInvLine."VAT Identifier";
+                            TmpVATAmtLine."VAT %" := SalesInvLine."VAT %";
+                            if TmpVATAmtLine.Find() then begin
+                                TmpVATAmtLine."VAT Base" += SalesInvLine.Amount;
+                                TmpVATAmtLine."VAT Amount" += SalesInvLine."Amount Including VAT" - SalesInvLine.Amount;
+                                TmpVATAmtLine."Line Amount" += SalesInvLine."Line Amount";
+                                TmpVATAmtLine."Invoice Discount Amount" += SalesInvLine."Inv. Discount Amount";
+                                TmpVATAmtLine.Modify();
+                            end else begin
+                                TmpVATAmtLine."VAT Base" := SalesInvLine.Amount;
+                                TmpVATAmtLine."VAT Amount" := SalesInvLine."Amount Including VAT" - SalesInvLine.Amount;
+                                TmpVATAmtLine."Line Amount" := SalesInvLine."Line Amount";
+                                TmpVATAmtLine."Invoice Discount Amount" := SalesInvLine."Inv. Discount Amount";
+                                TmpVATAmtLine.Insert();
+                            end;
                         end;
                     until SalesInvLine.Next() = 0;
 
