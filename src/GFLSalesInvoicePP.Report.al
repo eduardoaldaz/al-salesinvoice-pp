@@ -641,11 +641,14 @@ report 50400 "GFL Sales Invoice PP"
 
                 // Addresses
                 CustAddr[1] := "Bill-to Name";
-                CustAddr[2] := "Bill-to Name 2";
-                CustAddr[3] := "Bill-to Address";
-                CustAddr[4] := "Bill-to Address 2";
-                CustAddr[5] := "Bill-to Post Code" + ' ' + "Bill-to City";
-                CustAddr[6] := GetCountryName("Bill-to Country/Region Code");
+                CustAddr[2] := "Bill-to Address";
+                if "Bill-to County" <> '' then
+                    CustAddr[3] := "Bill-to County" + ' ' + "Bill-to Post Code" + ' ' + "Bill-to City"
+                else
+                    CustAddr[3] := "Bill-to Post Code" + ' ' + "Bill-to City";
+                CustAddr[4] := GetCountryName("Bill-to Country/Region Code");
+                CustAddr[5] := 'CIF/NIF: ' + "VAT Registration No.";
+                CustAddr[6] := '';
                 CustAddr[7] := '';
                 CustAddr[8] := '';
 
