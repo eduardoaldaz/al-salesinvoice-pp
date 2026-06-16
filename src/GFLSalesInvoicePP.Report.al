@@ -599,11 +599,11 @@ report 50400 "GFL Sales Invoice PP"
                 CompanyAddr[3] := CompanyInfo."Post Code" + ' ' + CompanyInfo.City;
                 CompanyAddr[4] := GetCountryName(CompanyInfo."Country/Region Code");
                 CompanyAddr[5] := CompanyInfo."Phone No.";
-                CompanyAddr[6] := 'CIF/NIF: ' + CompanyInfo."VAT Registration No.";
+                CompanyAddr[6] := 'CIF/NIF: ' + CompanyInfo."Country/Region Code" + CompanyInfo."VAT Registration No.";
                 if CompanyInfo."EORI Number" <> '' then
                     CompanyAddr[7] := 'EORI: ' + CompanyInfo."EORI Number"
                 else
-                    CompanyAddr[7] := '';
+                    CompanyAddr[7] := 'EORI: ' + CompanyInfo."Country/Region Code" + CompanyInfo."VAT Registration No.";
                 CompanyAddr[8] := '';
 
                 if not CompanyBankAcc.FindFirst() then
