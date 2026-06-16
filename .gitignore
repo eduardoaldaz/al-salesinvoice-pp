@@ -1,0 +1,18 @@
+# AL packages (símbolos descargados, binarios grandes)
+.alpackages/
+
+# Ficheros app generados
+*.app
+
+# VS Code local settings
+.vs/
+.vscode/settings.json
+
+# Caché local
+rad/
+
+# PDFs de referencia (no son código fuente)
+*.pdf
+
+# Carpeta de Claude Code
+.claude/
