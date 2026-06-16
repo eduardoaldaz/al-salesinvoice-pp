@@ -26,10 +26,10 @@ report 50400 "GFL Sales Invoice PP"
             column(CompanyHomePage; CompanyInfo."Home Page") { }
             column(CompanyEMail; CompanyInfo."E-Mail") { }
             column(CompanyPicture; CompanyInfo.Picture) { }
-            column(CompanyPicture2; CompanyInfo.Picture) { }
-            column(CompanyPicture3; CompanyInfo.Picture) { }
-            column(CompanyPicture4; CompanyInfo.Picture) { }
-            column(CompanyPicture5; CompanyInfo.Picture) { }
+            column(CompanyPicture2; CompanyInfo.Picture2) { }
+            column(CompanyPicture3; CompanyInfo.Picture3) { }
+            column(CompanyPicture4; CompanyInfo.Picture4) { }
+            column(CompanyPicture5; CompanyInfo.Picture5) { }
             column(CompanyPhoneNo; CompanyInfo."Phone No.") { }
             column(CompanyPhoneNo_Lbl; 'Teléfono') { }
             column(CompanyGiroNo; '') { }
@@ -174,7 +174,7 @@ report 50400 "GFL Sales Invoice PP"
             column(PaymentInstructions_Txt; '') { }
 
             // === AITANA CUSTOM ===
-            column(CCTxt; 'CC') { }
+            column(CCTxt; 'Compañía Certificada') { }
             column(LHeaderLbl1; LHeaderLblArr[1]) { }
             column(LHeaderLbl2; LHeaderLblArr[2]) { }
             column(LHeaderLbl3; LHeaderLblArr[3]) { }
@@ -589,7 +589,7 @@ report 50400 "GFL Sales Invoice PP"
             begin
                 CompanyInfo.Get();
                 NewLineTxt[1] := 10;
-                CompanyInfo.CalcFields(Picture);
+                CompanyInfo.CalcFields(Picture, Picture2, Picture3, Picture4, Picture5);
 
                 CompanyAddr[1] := CompanyInfo.Name;
                 if CompanyInfo."Address 2" <> '' then
@@ -600,7 +600,10 @@ report 50400 "GFL Sales Invoice PP"
                 CompanyAddr[4] := GetCountryName(CompanyInfo."Country/Region Code");
                 CompanyAddr[5] := CompanyInfo."Phone No.";
                 CompanyAddr[6] := 'CIF/NIF: ' + CompanyInfo."VAT Registration No.";
-                CompanyAddr[7] := 'EORI: ' + CompanyInfo."VAT Registration No.";
+                if CompanyInfo."EORI Number" <> '' then
+                    CompanyAddr[7] := 'EORI: ' + CompanyInfo."EORI Number"
+                else
+                    CompanyAddr[7] := '';
                 CompanyAddr[8] := '';
 
                 if not CompanyBankAcc.FindFirst() then

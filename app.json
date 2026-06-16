@@ -2,7 +2,7 @@
   "id": "6cb4863f-010c-4ce2-b7e9-83eee1c556b8",
   "name": "GFL-SalesInvoicePP",
   "publisher": "Global Food Link S.L.",
-  "version": "1.0.0.6",
+  "version": "1.0.0.7",
   "brief": "Factura de venta con desglose de descuento por pronto pago",
   "description": "Reporte de factura de venta personalizado (ID 50400) que incluye el desglose del descuento por pronto pago (P.P.) en la sección de subtotales, descripción del término de pago en cabecera y mensaje de advertencia condicional.",
   "privacyStatement": "",
@@ -11,6 +11,12 @@
   "url": "",
   "logo": "",
   "dependencies": [
+    {
+      "id": "e577bb00-af6a-40be-8c58-c32d12bd2f4b",
+      "name": "BC_GEN-001 General",
+      "publisher": "Aitana Management S.L.",
+      "version": "1.0.0.0"
+    },
     {
       "id": "2b8e3e4d-879e-4167-afe7-b1ddb6959219",
       "name": "BC_IMP-001 Impresos",
