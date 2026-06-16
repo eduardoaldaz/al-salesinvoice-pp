@@ -183,7 +183,7 @@ report 50400 "GFL Sales Invoice PP"
             column(LHeader1; LHeaderValArr[1]) { }
             column(LHeader2; LHeaderValArr[2]) { }
             column(LHeader3; LHeaderValArr[3]) { }
-            column(LHeader4; LHeaderValArr[4]) { }
+            column(LHeader4; "External Document No.") { }
             column(LHeader5; LHeaderValArr[5]) { }
             column(PT1; PTArr[1]) { }
             column(PT2; PTArr[2]) { }
