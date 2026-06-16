@@ -592,12 +592,15 @@ report 50400 "GFL Sales Invoice PP"
                 CompanyInfo.CalcFields(Picture);
 
                 CompanyAddr[1] := CompanyInfo.Name;
-                CompanyAddr[2] := CompanyInfo."VAT Registration No.";
-                CompanyAddr[3] := CompanyInfo.Address;
-                CompanyAddr[4] := CompanyInfo."Address 2";
-                CompanyAddr[5] := CompanyInfo."Post Code" + ' ' + CompanyInfo.City;
-                CompanyAddr[6] := CompanyInfo."Phone No.";
-                CompanyAddr[7] := CompanyInfo."E-Mail";
+                if CompanyInfo."Address 2" <> '' then
+                    CompanyAddr[2] := CompanyInfo.Address + ', ' + CompanyInfo."Address 2"
+                else
+                    CompanyAddr[2] := CompanyInfo.Address;
+                CompanyAddr[3] := CompanyInfo."Post Code" + ' ' + CompanyInfo.City;
+                CompanyAddr[4] := GetCountryName(CompanyInfo."Country/Region Code");
+                CompanyAddr[5] := CompanyInfo."Phone No.";
+                CompanyAddr[6] := 'CIF/NIF: ' + CompanyInfo."VAT Registration No.";
+                CompanyAddr[7] := 'EORI: ' + CompanyInfo."VAT Registration No.";
                 CompanyAddr[8] := '';
 
                 if not CompanyBankAcc.FindFirst() then
@@ -642,7 +645,7 @@ report 50400 "GFL Sales Invoice PP"
                 CustAddr[3] := "Bill-to Address";
                 CustAddr[4] := "Bill-to Address 2";
                 CustAddr[5] := "Bill-to Post Code" + ' ' + "Bill-to City";
-                CustAddr[6] := "Bill-to Country/Region Code";
+                CustAddr[6] := GetCountryName("Bill-to Country/Region Code");
                 CustAddr[7] := '';
                 CustAddr[8] := '';
 
@@ -651,7 +654,7 @@ report 50400 "GFL Sales Invoice PP"
                 ShipToAddr[3] := "Ship-to Address";
                 ShipToAddr[4] := "Ship-to Address 2";
                 ShipToAddr[5] := "Ship-to Post Code" + ' ' + "Ship-to City";
-                ShipToAddr[6] := "Ship-to Country/Region Code";
+                ShipToAddr[6] := GetCountryName("Ship-to Country/Region Code");
                 ShipToAddr[7] := '';
                 ShipToAddr[8] := '';
                 ShowShipAddr := "Ship-to Code" <> '';
@@ -892,4 +895,14 @@ report 50400 "GFL Sales Invoice PP"
         GFL_PmtDiscAmountFmtTxt: Text;
         GFL_TotalExclVATRecalcFmtTxt: Text;
         GFL_TotalInclVATRecalcFmtTxt: Text;
+
+    local procedure GetCountryName(CountryCode: Code[10]): Text
+    var
+        Country: Record "Country/Region";
+    begin
+        if CountryCode = '' then exit('');
+        if Country.Get(CountryCode) then
+            exit(Country.Name);
+        exit(CountryCode);
+    end;
 }
