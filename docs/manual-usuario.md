@@ -1,6 +1,6 @@
 # Manual de Usuario — Factura de Venta GFL (Informe 50400)
 
-**Empresa:** Global Food Link S.L.  
+**Empresa:** Empresa X  
 **Versión:** 1.0.1.0  
 **Fecha:** Junio 2026
 
@@ -8,9 +8,9 @@
 
 ## ¿Qué es este informe?
 
-El informe 50400 "GFL Sales Invoice PP" es la plantilla de factura de venta personalizada de Global Food Link S.L. para Business Central. Está diseñada para mostrar automáticamente el **desglose del descuento por pronto pago (P.P.)** cuando aplica, junto con los logos de certificación de la empresa (BRC, EU Orgánico, CESCE).
+El informe 50400 "GFL Sales Invoice PP" es la plantilla de factura de venta personalizada de Empresa X para Business Central. Está diseñada para mostrar automáticamente el **desglose del descuento por pronto pago (P.P.)** cuando aplica, junto con los logos de certificación de la empresa (BRC, EU Orgánico, CESCE).
 
-Es el informe que debe utilizarse en lugar del informe estándar de Aitana (50000) para facturas de Global Food Link.
+Es el informe que debe utilizarse en lugar del informe estándar de Aitana (50000) para facturas de la empresa.
 
 ---
 
@@ -45,9 +45,9 @@ Una vez configurado, al imprimir facturas de ese cliente se usará el 50400 sin 
 La cabecera aparece en todas las páginas de la factura.
 
 **Columna izquierda — Datos de la empresa:**
-- Logotipo de Global Food Link
+- Logotipo de la empresa
 - Nombre, dirección completa, teléfono
-- CIF/NIF (con prefijo de país, ej.: ESB71294805)
+- CIF/NIF (con prefijo de país, ej.: ES12345678X)
 - Número EORI
 
 **Columna central — Logos de certificación:**

@@ -1,6 +1,6 @@
 # GFL Sales Invoice PP — Report 50400
 
-Extensión AL de Business Central para Global Food Link S.L. que genera facturas de venta con desglose de descuento por pronto pago (P.P.) y logos de certificación.
+Extensión AL de Business Central que genera facturas de venta con desglose de descuento por pronto pago (P.P.) y logos de certificación.
 
 ## Descripción
 
@@ -50,4 +50,4 @@ Ver historial completo en el [Informe Técnico](docs/informe-tecnico.md#11-histo
 
 ## Publisher
 
-Global Food Link S.L.
+Empresa X

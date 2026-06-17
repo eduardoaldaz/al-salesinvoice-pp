@@ -1,15 +1,15 @@
 # Informe Técnico — GFL Sales Invoice PP (Report 50400)
 
-**Empresa:** Global Food Link S.L.  
+**Empresa:** Empresa X  
 **Versión actual:** 1.0.1.0  
 **Fecha:** Junio 2026  
-**Autor:** Departamento de Sistemas / Claude Code (Anthropic)
+**Autor:** Departamento de Sistemas
 
 ---
 
 ## 1. Descripción General
 
-`GFL Sales Invoice PP` es un report standalone de Business Central (ID 50400) que genera facturas de venta personalizadas para Global Food Link S.L. Está basado en el diseño del report 50000 de Aitana Management S.L. con las siguientes adiciones:
+`GFL Sales Invoice PP` es un report standalone de Business Central (ID 50400) que genera facturas de venta personalizadas para Empresa X. Está basado en el diseño del report 50000 de Aitana Management S.L. con las siguientes adiciones:
 
 - Desglose de **descuento por pronto pago (P.P.)** en la sección de subtotales
 - **Descripción del término de pago** en la cabecera del documento
@@ -258,8 +258,8 @@ Para que las facturas de un cliente usen el report 50400 automáticamente:
 
 | Remoto | URL | Descripción |
 |---|---|---|
-| `origin` (personal) | `https://github.com/eduardoaldaz/al-salesinvoice-pp.git` | Copia en cuenta personal |
-| `empresa` | `https://github.com/globalfoodlink/al-salesinvoice-pp.git` | Cuenta organización Global Food Link |
+| `origin` (personal) | `https://github.com/<usuario>/al-salesinvoice-pp.git` | Copia en cuenta personal |
+| `empresa` | `https://github.com/<org>/al-salesinvoice-pp.git` | Cuenta organización empresa |
 
 Cada commit se sube a ambos remotos simultáneamente:
 ```bash
@@ -279,6 +279,6 @@ git push empresa master
 | 1.0.0.5 | Jun 2026 | Fix dirección cliente: reorden CustAddr, CIF/NIF cliente, GetCountryName. Fix ShipmentLine siempre oculto. Fix imágenes certificación ocultas |
 | 1.0.0.6 | Jun 2026 | Fix fila extra tabla IVA (skip líneas sin VAT Identifier). Fix espacio en Observaciones (IIF forzar espacio en LegalLbl2) |
 | 1.0.0.7 | Jun 2026 | Añadida dependencia BC_GEN-001 General. CompanyPicture2–5 usan campos reales (Picture2–5). CCTxt = 'Compañía Certificada'. Imágenes certificación visibles en RDLC |
-| 1.0.0.8 | Jun 2026 | Fix CIF/NIF: añade prefijo Country/Region Code (ESB71294805). Fix EORI: usa campo estándar "EORI Number" con fallback a Country+VAT |
+| 1.0.0.8 | Jun 2026 | Fix CIF/NIF: añade prefijo Country/Region Code. Fix EORI: usa campo estándar "EORI Number" con fallback a Country+VAT |
 | 1.0.0.9 | Jun 2026 | Fix Nº Pedido Cliente: LHeader4 usa campo directo "External Document No." (no funcionó) |
 | 1.0.1.0 | Jun 2026 | Fix Nº Pedido Cliente: LHeader4 corregido a campo "Your Reference" (fuente real en Aitana) |
