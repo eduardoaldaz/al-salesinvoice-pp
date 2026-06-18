@@ -14,8 +14,7 @@ Report standalone (ID 50400) basado en el diseño de Aitana (50000) con las sigu
 ## Requisitos
 
 - Business Central 28.0 (cloud)
-- Extensión `BC_GEN-001 General` de Aitana Management S.L. (≥ 1.0.0.0)
-- Extensión `BC_IMP-001 Impresos` de Aitana Management S.L. (≥ 1.0.0.0)
+- Extensiones base del entorno BC preinstaladas (`BC_GEN-001 General` y `BC_IMP-001 Impresos`)
 
 ## Estructura del Proyecto
 
